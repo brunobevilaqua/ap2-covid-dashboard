@@ -1,0 +1,31 @@
+package com.example.ap2_covid_dashboard.covidreports.brazil.enums
+
+enum class BrazilStateEnum(name: String) {
+    SP("São Paulo"),
+    CE("Ceará"),
+    RJ("Rio de Janeiro"),
+    AM("Amazonas"),
+    PE("Pernambuco"),
+    PA("Pará"),
+    MA("Maranhão"),
+    BA("Bahia"),
+    ES("Espírito Santo"),
+    SC("Santa Catarina"),
+    MG("Minas Gerais"),
+    DF("Distrito Federal"),
+    PB("Paraíba"),
+    AP("Amapá"),
+    RS("Rio Grande do Sul"),
+    AL("Alagoas"),
+    SE("Sergipe"),
+    RN("Rio Grande do Norte"),
+    PR("Paraná"),
+    PI("Piauí"),
+    RO("Rondônia"),
+    AC("Acre"),
+    RR("Roraima"),
+    GO("Goiás"),
+    TO("Tocantins"),
+    MT("Mato Grosso"),
+    MS("Mato Grosso do Sul")
+}
