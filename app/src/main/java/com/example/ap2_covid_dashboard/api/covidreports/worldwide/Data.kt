@@ -1,4 +1,4 @@
-package com.example.ap2_covid_dashboard.covidreports.worldwide
+package com.example.ap2_covid_dashboard.api.covidreports.worldwide
 
 import com.google.gson.annotations.SerializedName
 import java.util.*

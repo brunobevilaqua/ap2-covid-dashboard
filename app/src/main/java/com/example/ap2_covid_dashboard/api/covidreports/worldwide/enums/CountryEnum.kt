@@ -1,4 +1,4 @@
-package com.example.ap2_covid_dashboard.covidreports.worldwide.enums
+package com.example.ap2_covid_dashboard.api.covidreports.worldwide.enums
 
 enum class CountryEnum(name: String) {
     AUSTRALIA("Australia"),

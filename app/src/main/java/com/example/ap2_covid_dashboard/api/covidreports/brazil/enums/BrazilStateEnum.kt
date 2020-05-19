@@ -1,4 +1,4 @@
-package com.example.ap2_covid_dashboard.covidreports.brazil.enums
+package com.example.ap2_covid_dashboard.api.covidreports.brazil.enums
 
 enum class BrazilStateEnum(name: String) {
     SP("São Paulo"),
