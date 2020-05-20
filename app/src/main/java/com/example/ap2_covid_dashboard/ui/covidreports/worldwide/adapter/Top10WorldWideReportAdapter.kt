@@ -1,4 +1,4 @@
-package com.example.ap2_covid_dashboard.ui.adapter
+package com.example.ap2_covid_dashboard.ui.covidreports.worldwide.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,18 +7,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ap2_covid_dashboard.R
 import com.example.ap2_covid_dashboard.api.covidreports.worldwide.Data
-import com.example.ap2_covid_dashboard.api.covidreports.worldwide.GetAllReportResponse
-import com.example.ap2_covid_dashboard.ui.ReportEnum
-import kotlinx.android.synthetic.main.country_report_layout.view.*
+import com.example.ap2_covid_dashboard.ui.covidreports.shared.ReportEnum
+import kotlinx.android.synthetic.main.top_10_country_report_layout.view.*
 
-class CovidReportsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    lateinit var reports: GetAllReportResponse
+class Top10WorldWideReportAdapter(private val top10List: List<Data>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CountryReportsViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.country_report_layout,
+                R.layout.top_10_country_report_layout,
                 parent,
                 false
             )
@@ -28,35 +26,32 @@ class CovidReportsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is CountryReportsViewHolder -> {
-                holder.bind(reports.data.get(position))
+                holder.bind(top10List[position], position + 1)
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return reports.data.size
-    }
-
-    fun submitWorldWideReports(reports: GetAllReportResponse) {
-        this.reports = reports
+        return top10List.size
     }
 
     class CountryReportsViewHolder constructor(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.countryName;
-        val cases: TextView = itemView.cases;
-        val confirmed: TextView = itemView.confirmed;
-        val deaths: TextView = itemView.recovered;
-        val recovered: TextView = itemView.deaths;
+        val name: TextView = itemView.top10CountryName;
+        val cases: TextView = itemView.top10Cases;
+        val confirmed: TextView = itemView.top10Confirmed;
+        val recovered: TextView = itemView.top10Recovered;
+        val deaths: TextView = itemView.top10Deaths;
+        val rankingPosition: TextView = itemView.top10RankingPosition
 
-        fun bind(data: Data) {
+        fun bind(data: Data, rankPosition: Int) {
             name.text = data.country
             cases.text = ReportEnum.NUMBER_CASES.label + data.cases.toString()
             confirmed.text = ReportEnum.CONFIRMED.label + data.confirmed.toString()
-            deaths.text = ReportEnum.DEATHS.label + data.deaths.toString()
             recovered.text = ReportEnum.RECOVERED.label + data.recovered.toString()
+            deaths.text = ReportEnum.DEATHS.label + data.deaths.toString()
+            rankingPosition.text = rankPosition.toString()
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.ap2_covid_dashboard.ui
+package com.example.ap2_covid_dashboard.ui.shared
 
 import android.graphics.Rect
 import android.view.View

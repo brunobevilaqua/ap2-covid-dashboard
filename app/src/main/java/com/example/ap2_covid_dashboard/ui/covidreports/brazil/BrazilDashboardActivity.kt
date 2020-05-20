@@ -1,13 +1,13 @@
-package com.example.ap2_covid_dashboard.ui
+package com.example.ap2_covid_dashboard.ui.covidreports.brazil
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ap2_covid_dashboard.R
 
-class WorldWideReportActivity : AppCompatActivity() {
+class BrazilDashboardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_world_wide_report)
+        setContentView(R.layout.activity_brazil_dashboard)
     }
 }

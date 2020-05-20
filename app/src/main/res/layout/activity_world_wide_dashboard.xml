@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.covidreports.worldwide.WorldWideDashboardActivity">
 
     <GridView
-        android:id="@+id/reports"
+        android:id="@+id/wwReports"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="150dp"
