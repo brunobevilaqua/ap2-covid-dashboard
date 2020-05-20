@@ -1,25 +1,25 @@
 # ap2-covid-dashboard
 
 <p> Main Screen </p>
-![Main Screen](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-main_screen.png)
-<hr>
+<img src="screenshots/screenshot-main_screen.png">
+
 <p> Menu para escolher entre Bolentins do Brasil ou do Mundo </p>
-![Main dashboard](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-main_dashboard.png)
-<hr>
+<img src="screenshots/screenshot-main_dashboard.png">
+
 <p> Menu Principal de Opções para o Brasil </p>
-![Brazil Reports Main Menu](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-brazil_reports_menu.png)
-<hr>
+<img src="screenshots/screenshot-brazil_reports_menu.png">
+
 <p> Boletins por Estados Brasileiros </p>
-![Brazil State Reports](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-brazil_state_reports.png)
-<hr>
+<img src="screenshots/screenshot-brazil_state_reports.png">
+
 <p> Boletins do Brasil </p>
-![Brazil Report](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-brazil_report.png)
-<hr>
+<img src="screenshots/screenshot-brazil_report.png">
+
 <p> Boletim geral do Mundo </p>
-![World Reports Main Menu Options](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-world_reports_menu.png)
-<hr>
+<img src="screenshots/screenshot-world_reports_menu.png">
+
 <p> Boletm de todos os paises </p>
-![All Countries reports](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-world_results_by_country.png)
-<hr>
+<img src="screenshots/screenshot-world_results_by_country.png">
+
 <p> Top 10 Paises em numeros de casos </p>
-![Top 10 countries](https://github.com/brunobevilaqua/ap2-covid-dashboard/blob/master/app/src/main/res/drawable-v24/screenshot-world_top10_reports.png)
+<img src="screenshots/screenshot-world_top10_reports.png">
