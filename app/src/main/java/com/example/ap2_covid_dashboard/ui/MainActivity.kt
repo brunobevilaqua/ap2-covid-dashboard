@@ -2,51 +2,61 @@ package com.example.ap2_covid_dashboard.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.GridView
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ap2_covid_dashboard.R
-import com.example.ap2_covid_dashboard.ui.covidreports.brazil.BrazilDashboardActivity
-import com.example.ap2_covid_dashboard.ui.covidreports.worldwide.WorldWideDashboardActivity
-import com.example.ap2_covid_dashboard.ui.menu.MenuItemAdapter
-import com.example.ap2_covid_dashboard.ui.menu.MenuItemEnum
+import com.example.ap2_covid_dashboard.api.covidreports.CovidWSClient
+import com.example.ap2_covid_dashboard.api.covidreports.worldwide.GetAllReportResponse
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var adapter: MenuItemAdapter
-    private val menuOptions =
-        arrayListOf(MenuItemEnum.BRAZIL_REPORTS.item, MenuItemEnum.WORLD_REPORTS.item)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupMenuOption()
-        setOnClickListenerForGridMenu()
+        getData()
+        setOnClickListenerForButton()
     }
 
-    private fun setupMenuOption() {
-        adapter = MenuItemAdapter(
-            this,
-            menuOptions
-        )
-        reports.adapter = adapter
+    private fun setOnClickListenerForButton() {
+        openDashboard.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, MainDashboardActivity::class.java))
+        })
     }
 
-    private fun setOnClickListenerForGridMenu() {
-        val gridView = findViewById<GridView>(R.id.reports) as GridView
-
-        gridView.onItemClickListener =
-            AdapterView.OnItemClickListener { parent, view, position, id ->
-                val option = menuOptions[position]
-
-                if (option.name.equals(MenuItemEnum.BRAZIL_REPORTS.item.name)) {
-                    startActivity(Intent(this, BrazilDashboardActivity::class.java))
+    private fun getData() {
+        CovidWSClient().getAllReports()
+            .enqueue(object : Callback<GetAllReportResponse> {
+                override fun onFailure(call: Call<GetAllReportResponse>, t: Throwable) {
+                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                 }
 
-                if (option.name.equals(MenuItemEnum.WORLD_REPORTS.item.name)) {
-                    startActivity(Intent(this, WorldWideDashboardActivity::class.java))
+                override fun onResponse(
+                    call: Call<GetAllReportResponse>,
+                    response: Response<GetAllReportResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        var totalWorldCases = 0
+                        var totalBrazilCases = 0
+
+                        // Order List by Country Name
+                        val orderedList =
+                            response.body()?.data?.forEach {
+                                totalWorldCases += it.cases
+                                if (it.country.equals("Brazil")) {
+                                    totalBrazilCases = it.cases
+                                }
+                            }
+                        totalCasesBrazil.text =
+                            "Total de Casos no Brasil: " + totalBrazilCases.toString()
+                        totalCasesWorld.text =
+                            "Total de Casos no Mundo: " + totalWorldCases.toString()
+                    }
                 }
-            }
+            })
     }
 }
