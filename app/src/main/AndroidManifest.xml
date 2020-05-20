@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainDashboardActivity"></activity>
+        <activity android:name=".ui.covidreports.brazil.BrazilStatesReportActivity"></activity>
+        <activity android:name=".ui.covidreports.brazil.BrazilReportActivity" />
+        <activity android:name=".ui.MainDashboardActivity" />
         <activity android:name=".ui.covidreports.worldwide.WorldWideDashboardActivity" />
         <activity android:name=".ui.covidreports.worldwide.Top10WorldWideReportActivity" />
         <activity android:name=".ui.covidreports.WorldWideReportsActivity" />

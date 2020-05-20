@@ -3,17 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.covidreports.brazil.BrazilStatesReportActivity">
 
-    <GridView
-        android:id="@+id/mainDashBoardGrid"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/brazilStatesReportRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="150dp"
-        android:horizontalSpacing="15dp"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="15dp" >
-
-    </GridView>
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

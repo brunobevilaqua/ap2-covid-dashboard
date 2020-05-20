@@ -25,5 +25,17 @@ enum class MenuItemEnum(val item: MenuItem) {
             "Relatórios de todos países",
             R.drawable.world
         )
+    ),
+    BRAZIL_STATES_REPORTS(
+        MenuItem(
+            "Relatórios de cada estado do Brasil",
+            R.drawable.brazil_states
+        )
+    ),
+    BRAZIL_REPORT(
+        MenuItem(
+            "Relatório geral do Brasil",
+            R.drawable.brazil_map
+        )
     )
 }

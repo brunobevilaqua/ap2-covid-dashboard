@@ -1,13 +1,52 @@
 package com.example.ap2_covid_dashboard.ui.covidreports.brazil
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.AdapterView
+import android.widget.GridView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ap2_covid_dashboard.R
+import com.example.ap2_covid_dashboard.ui.covidreports.worldwide.WorldWideDashboardActivity
+import com.example.ap2_covid_dashboard.ui.menu.MenuItemAdapter
+import com.example.ap2_covid_dashboard.ui.menu.MenuItemEnum
+import kotlinx.android.synthetic.main.activity_brazil_dashboard.*
+import kotlinx.android.synthetic.main.activity_main_dashboard.*
 
 class BrazilDashboardActivity : AppCompatActivity() {
+
+    private lateinit var adapter: MenuItemAdapter
+    private val menuOptions =
+        arrayListOf(MenuItemEnum.BRAZIL_REPORT.item, MenuItemEnum.BRAZIL_STATES_REPORTS.item)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brazil_dashboard)
+        setupMenuOption()
+        setOnClickListenerForGridMenu()
+    }
+
+    private fun setupMenuOption() {
+        adapter = MenuItemAdapter(
+            this,
+            menuOptions
+        )
+        brazilDashboardGrid.adapter = adapter
+    }
+
+    private fun setOnClickListenerForGridMenu() {
+        val gridView = findViewById<GridView>(R.id.brazilDashboardGrid) as GridView
+
+        gridView.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                val option = menuOptions[position]
+
+                if (option.name.equals(MenuItemEnum.BRAZIL_REPORT.item.name)) {
+                    startActivity(Intent(this, BrazilReportActivity::class.java))
+                }
+
+                if (option.name.equals(MenuItemEnum.BRAZIL_STATES_REPORTS.item.name)) {
+                    startActivity(Intent(this, BrazilStatesReportActivity::class.java))
+                }
+            }
     }
 }

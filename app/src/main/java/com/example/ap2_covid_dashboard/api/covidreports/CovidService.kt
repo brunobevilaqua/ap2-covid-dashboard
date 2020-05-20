@@ -13,6 +13,9 @@ interface CovidService {
     @GET(".")
     fun getAllBrazilianStatesReport(): Call<GetBrazilianStatesReportResponse>
 
+    @GET("brazil")
+    fun getBrazilReport(@Path("date") date: String): Call<GetBrazilianStatesReportResponse>
+
     @GET("brazil/{date}")
     fun getAllBrazilianStatesReportsByDate(@Path("date") date: String): Call<GetBrazilianStatesReportResponse>
 
@@ -23,6 +26,6 @@ interface CovidService {
     fun getAllWorldWideReports(): Call<GetAllReportResponse>
 
     @GET("{country}")
-    fun getReportByCountry(@Path("country") country: String): Call<List<GetReportByCountryResponse>>
+    fun getReportByCountry(@Path("country") country: String): Call<GetReportByCountryResponse>
 
 }

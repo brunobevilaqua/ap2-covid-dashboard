@@ -30,11 +30,11 @@ class MainDashboardActivity : AppCompatActivity() {
             this,
             menuOptions
         )
-        reports.adapter = adapter
+        mainDashBoardGrid.adapter = adapter
     }
 
     private fun setOnClickListenerForGridMenu() {
-        val gridView = findViewById<GridView>(R.id.reports) as GridView
+        val gridView = findViewById<GridView>(R.id.mainDashBoardGrid) as GridView
 
         gridView.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->

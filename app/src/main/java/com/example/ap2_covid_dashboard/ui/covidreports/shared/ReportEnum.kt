@@ -5,5 +5,8 @@ enum class ReportEnum(val label: String) {
     STATE("Estado: "),
     RECOVERED("Casos Curados: "),
     DEATHS("Óbitos: "),
-    CONFIRMED("Confirmados: ")
+    CONFIRMED("Confirmados: "),
+    SUSPECTS("Suspeitos: "),
+    REPORT_DATE("Data do Relatório: "),
+    UPDATE_AT("Última atualização: ")
 }
